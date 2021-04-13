@@ -1,0 +1,67 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red22\green21\blue22;\red246\green246\blue246;}
+{\*\expandedcolortbl;;\cssrgb\c11373\c10980\c11373;\cssrgb\c97255\c97255\c97255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28300\viewh16280\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs30 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 POST\
+User->>+Controller: @requestBody\
+\'a0\'a0Controller->>+Service: crear(ClientDTO)\
+\'a0\'a0Service->>+Service: valid(ClientDTO)\
+\'a0\'a0Service->>+Repository:crear(ClientDTO)\
+\'a0\'a0Repository-->>-Service:json\
+\'a0\'a0Service-->>-Controller:\'93Created\'94\
+\'a0\'a0Controller-->>-User:@ResponseEntity\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 DELETE\
+User->>+Controller: username\
+\'a0\'a0Controller->>+Service: delete(username)\
+\'a0\'a0Service->>+Repository:findByUserName(username)\
+\'a0\'a0Repository-->>-Service:boolean\
+\'a0\'a0Service->>+Repository:delete(username)\
+\'a0\'a0Repository-->>-Service:boolean\
+\'a0\'a0Service-->>-Controller:\'93deleted\'94\
+\'a0\'a0Controller-->>-User:@ResponseEntity\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 PUT\
+\'a0User->>+Controller: @RequestBody\
+\'a0\'a0Controller->>+Service: update(ClientDTO)\
+\'a0\'a0Service->>+Repository:findByUserId(clientID)\
+\'a0\'a0Repository-->>-Service:boolean\
+\'a0\'a0Service->>+Repository:update(ClientDTO)\
+\'a0\'a0Repository-->>-Service:boolean\
+\'a0\'a0Service-->>-Controller:\'93Client Updated\'94\
+\'a0\'a0Controller-->>-User:@ResponseEntity\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 GET\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \'a0\'a0User->>+Controller: username\
+\'a0\'a0Controller->>+Service: getUser(username)\
+\'a0\'a0Service->>+Repository:findByUserName(username)\
+\'a0\'a0Repository-->>-Service:ClientDTO\
+\'a0\'a0Service-->>-Controller:ClientDTO\
+\'a0\'a0Controller-->>-User:@ResponseEntity\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 Listar\
+\pard\pardeftab720\partightenfactor0
+\cf2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 User->>+Controller: \'93/listar\'94\
+\'a0\'a0Controller->>+Service: getAll()\
+\'a0\'a0Service->>+Repository:getAll()\
+\'a0\'a0Repository-->>-Service:List<ClientDTO>\
+\'a0\'a0Service-->>-Controller:List<ClientDTO>\
+\'a0\'a0Controller-->>-User:@ResponseEntity}
